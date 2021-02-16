@@ -29,6 +29,6 @@ while not is_url_empty:
 
 # Write list of URLS to csv file
 now = datetime.now().strftime("%Y%m%d")
-with open(f"houses_brognoly_{now}.csv", "w") as myfile:
+with open(f"houses_urls_brognoly_{now}.csv", "w") as myfile:
     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
     wr.writerow(all_houses_urls)
