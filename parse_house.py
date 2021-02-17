@@ -4,8 +4,9 @@ import csv
 import re
 import pandas as pd
 from datetime import datetime
+import time
 
-with open("houses_brognoly_20210215.csv") as csvfile:
+with open("houses_urls_brognoly_20210216.csv") as csvfile:
     reader = csv.reader(csvfile, delimiter=",")
     houses_urls = list(reader)[0]
 
@@ -18,6 +19,7 @@ AREA_M2 = []
 VAGAS_GARAGEM = []
 VALOR_IMOVEL = []
 IPTU = []
+start_time = time.time()
 for house in houses_urls:
     print(f"Parsing url: {house}")
     house_url = house
@@ -73,6 +75,7 @@ for house in houses_urls:
     VAGAS_GARAGEM.append(vagas_garagem)
     VALOR_IMOVEL.append(valor_imovel)
     IPTU.append(iptu)
+print(f"{time.time() - start_time} seconds elapsed.")
 
 # Build Dataframe
 data_dict = {
